@@ -44,7 +44,7 @@
       "mocha": true
     }
   },
-  "repository": "ravidsrk/generator-android-mvp-starter",
+  "repository": "androidstarter/generator-android-mvp-starter",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
