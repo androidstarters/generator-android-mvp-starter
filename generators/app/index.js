@@ -28,9 +28,9 @@ function templateDirectory(source, destination) {
   }
 }
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
   initializing: function () {
-    this.pkg = require('../package.json');
+    this.pkg = require('../../package.json');
     this.templateDirectory = templateDirectory.bind(this);
   },
 
