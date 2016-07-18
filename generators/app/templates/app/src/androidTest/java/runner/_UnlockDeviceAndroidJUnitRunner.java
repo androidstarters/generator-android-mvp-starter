@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.runner;
+package <%= appPackage %>.runner;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

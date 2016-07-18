@@ -1,14 +1,14 @@
-package in.mvpstarter.sample.common;
+package <%= appPackage %>.common;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-import in.mvpstarter.sample.data.model.NamedResource;
-import in.mvpstarter.sample.data.model.Pokemon;
-import in.mvpstarter.sample.data.model.Sprites;
-import in.mvpstarter.sample.data.model.Statistic;
+import <%= appPackage %>.data.model.NamedResource;
+import <%= appPackage %>.data.model.Pokemon;
+import <%= appPackage %>.data.model.Sprites;
+import <%= appPackage %>.data.model.Statistic;
 
 /**
  * Factory class that makes instances of data models with random field values.

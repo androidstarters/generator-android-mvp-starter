@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.util;
+package <%= appPackage %>.util;
 
 import rx.Observable;
 import rx.Subscription;

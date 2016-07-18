@@ -1,6 +1,6 @@
-package in.mvpstarter.sample.util;
+package <%= appPackage %>.util;
 
-import in.mvpstarter.sample.R;
+import <%= appPackage %>.R;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;

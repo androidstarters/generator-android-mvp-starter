@@ -1,10 +1,10 @@
-package in.mvpstarter.sample.common.injection.component;
+package <%= appPackage %>.common.injection.component;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import in.mvpstarter.sample.common.injection.module.ApplicationTestModule;
-import in.mvpstarter.sample.injection.component.ApplicationComponent;
+import <%= appPackage %>.common.injection.module.ApplicationTestModule;
+import <%= appPackage %>.injection.component.ApplicationComponent;
 
 @Singleton
 @Component(modules = ApplicationTestModule.class)

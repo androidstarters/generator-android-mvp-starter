@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.common;
+package <%= appPackage %>.common;
 
 import android.content.Context;
 
@@ -6,11 +6,11 @@ import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-import in.mvpstarter.sample.MvpStarterApplication;
-import in.mvpstarter.sample.common.injection.component.DaggerTestComponent;
-import in.mvpstarter.sample.common.injection.component.TestComponent;
-import in.mvpstarter.sample.common.injection.module.ApplicationTestModule;
-import in.mvpstarter.sample.data.DataManager;
+import <%= appPackage %>.MvpStarterApplication;
+import <%= appPackage %>.common.injection.component.DaggerTestComponent;
+import <%= appPackage %>.common.injection.component.TestComponent;
+import <%= appPackage %>.common.injection.module.ApplicationTestModule;
+import <%= appPackage %>.data.DataManager;
 
 /**
  * Test rule that creates and sets a Dagger TestComponent into the application overriding the

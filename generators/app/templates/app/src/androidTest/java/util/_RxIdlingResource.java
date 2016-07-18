@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.util;
+package <%= appPackage %>.util;
 
 import android.support.test.espresso.IdlingResource;
 

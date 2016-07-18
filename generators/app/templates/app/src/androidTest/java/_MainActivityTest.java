@@ -1,4 +1,4 @@
-package in.mvpstarter.sample;
+package <%= appPackage %>;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
@@ -12,12 +12,12 @@ import org.junit.runner.RunWith;
 
 import java.util.List;
 
-import in.mvpstarter.sample.common.TestComponentRule;
-import in.mvpstarter.sample.common.TestDataFactory;
-import in.mvpstarter.sample.data.model.NamedResource;
-import in.mvpstarter.sample.data.model.Pokemon;
-import in.mvpstarter.sample.ui.main.MainActivity;
-import in.mvpstarter.sample.util.ErrorTestUtil;
+import <%= appPackage %>.common.TestComponentRule;
+import <%= appPackage %>.common.TestDataFactory;
+import <%= appPackage %>.data.model.NamedResource;
+import <%= appPackage %>.data.model.Pokemon;
+import <%= appPackage %>.ui.main.MainActivity;
+import <%= appPackage %>.util.ErrorTestUtil;
 import rx.Single;
 
 import static android.support.test.espresso.Espresso.onView;
