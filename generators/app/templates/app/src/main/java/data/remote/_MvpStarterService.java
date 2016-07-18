@@ -1,10 +1,10 @@
-package in.mvpstarter.sample.data.remote;
+package <%= appPackage %>.data.remote;
 
 
 import java.util.List;
 
-import in.mvpstarter.sample.data.model.NamedResource;
-import in.mvpstarter.sample.data.model.Pokemon;
+import <%= appPackage %>.data.model.NamedResource;
+import <%= appPackage %>.data.model.Pokemon;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;

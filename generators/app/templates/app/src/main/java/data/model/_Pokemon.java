@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.data.model;
+package <%= appPackage %>.data.model;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package in.mvpstarter.sample.ui.main;
+package <%= appPackage %>.ui.main;
 
 import java.util.List;
 
-import in.mvpstarter.sample.ui.base.MvpView;
+import <%= appPackage %>.ui.base.MvpView;
 
 public interface MainMvpView extends MvpView {
 

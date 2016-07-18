@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.injection.module;
+package <%= appPackage %>.injection.module;
 
 import android.app.Application;
 import android.content.Context;
@@ -7,9 +7,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import in.mvpstarter.sample.data.remote.MvpStarterService;
-import in.mvpstarter.sample.data.remote.MvpStarterServiceFactory;
-import in.mvpstarter.sample.injection.ApplicationContext;
+import <%= appPackage %>.data.remote.MvpStarterService;
+import <%= appPackage %>.data.remote.MvpStarterServiceFactory;
+import <%= appPackage %>.injection.ApplicationContext;
 
 @Module
 public class ApplicationModule {

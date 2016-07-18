@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.data;
+package <%= appPackage %>.data;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -9,11 +9,11 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.List;
 
-import in.mvpstarter.sample.common.TestDataFactory;
-import in.mvpstarter.sample.data.model.NamedResource;
-import in.mvpstarter.sample.data.model.Pokemon;
-import in.mvpstarter.sample.data.remote.MvpStarterService;
-import in.mvpstarter.sample.util.RxSchedulersOverrideRule;
+import <%= appPackage %>.common.TestDataFactory;
+import <%= appPackage %>.data.model.NamedResource;
+import <%= appPackage %>.data.model.Pokemon;
+import <%= appPackage %>.data.remote.MvpStarterService;
+import <%= appPackage %>.util.RxSchedulersOverrideRule;
 import rx.Single;
 import rx.observers.TestSubscriber;
 

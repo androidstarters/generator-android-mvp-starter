@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.detail;
+package <%= appPackage %>.ui.detail;
 
 import android.os.Bundle;
 
@@ -9,8 +9,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import in.mvpstarter.sample.R;
-import in.mvpstarter.sample.ui.base.BaseActivity;
+import <%= appPackage %>.R;
+import <%= appPackage %>.ui.base.BaseActivity;
 
 public class MapsSampleActivity extends BaseActivity implements OnMapReadyCallback {
 

@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.data;
+package <%= appPackage %>.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import in.mvpstarter.sample.data.model.NamedResource;
-import in.mvpstarter.sample.data.model.Pokemon;
-import in.mvpstarter.sample.data.remote.MvpStarterService;
+import <%= appPackage %>.data.model.NamedResource;
+import <%= appPackage %>.data.model.Pokemon;
+import <%= appPackage %>.data.remote.MvpStarterService;
 import rx.Single;
 
 @Singleton

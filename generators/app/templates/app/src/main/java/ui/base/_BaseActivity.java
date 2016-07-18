@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.base;
+package <%= appPackage %>.ui.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-import in.mvpstarter.sample.MvpStarterApplication;
-import in.mvpstarter.sample.injection.component.ActivityComponent;
-import in.mvpstarter.sample.injection.component.ConfigPersistentComponent;
-import in.mvpstarter.sample.injection.component.DaggerConfigPersistentComponent;
-import in.mvpstarter.sample.injection.module.ActivityModule;
+import <%= appPackage %>.MvpStarterApplication;
+import <%= appPackage %>.injection.component.ActivityComponent;
+import <%= appPackage %>.injection.component.ConfigPersistentComponent;
+import <%= appPackage %>.injection.component.DaggerConfigPersistentComponent;
+import <%= appPackage %>.injection.module.ActivityModule;
 import timber.log.Timber;
 
 /**

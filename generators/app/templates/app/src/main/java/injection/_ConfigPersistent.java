@@ -1,11 +1,11 @@
-package in.mvpstarter.sample.injection;
+package <%= appPackage %>.injection;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 import javax.inject.Scope;
 
-import in.mvpstarter.sample.injection.component.ConfigPersistentComponent;
+import <%= appPackage %>.injection.component.ConfigPersistentComponent;
 
 /**
  * A scoping annotation to permit dependencies conform to the life of the

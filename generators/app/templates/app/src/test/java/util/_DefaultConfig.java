@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.util;
+package <%= appPackage %>.util;
 
 public class DefaultConfig {
     //The api level that Roboelectric will use to run the unit tests

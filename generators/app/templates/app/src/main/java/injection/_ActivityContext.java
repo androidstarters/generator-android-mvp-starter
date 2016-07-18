@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.injection;
+package <%= appPackage %>.injection;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

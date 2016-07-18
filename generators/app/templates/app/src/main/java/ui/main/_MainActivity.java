@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.main;
+package <%= appPackage %>.ui.main;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,10 +14,10 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.mvpstarter.sample.R;
-import in.mvpstarter.sample.ui.base.BaseActivity;
-import in.mvpstarter.sample.ui.common.ErrorView;
-import in.mvpstarter.sample.ui.detail.DetailActivity;
+import <%= appPackage %>.R;
+import <%= appPackage %>.ui.base.BaseActivity;
+import <%= appPackage %>.ui.common.ErrorView;
+import <%= appPackage %>.ui.detail.DetailActivity;
 
 public class MainActivity extends BaseActivity implements MainMvpView, PokemonAdapter.ClickListener,
         ErrorView.ErrorListener {

@@ -1,13 +1,13 @@
-package in.mvpstarter.sample.ui.main;
+package <%= appPackage %>.ui.main;
 
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import in.mvpstarter.sample.data.DataManager;
-import in.mvpstarter.sample.injection.ConfigPersistent;
-import in.mvpstarter.sample.ui.base.BasePresenter;
+import <%= appPackage %>.data.DataManager;
+import <%= appPackage %>.injection.ConfigPersistent;
+import <%= appPackage %>.ui.base.BasePresenter;
 import rx.SingleSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.util;
+package <%= appPackage %>.util;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -6,7 +6,7 @@ import android.content.Context;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
-import in.mvpstarter.sample.R;
+import <%= appPackage %>.R;
 
 
 public final class DialogFactory {

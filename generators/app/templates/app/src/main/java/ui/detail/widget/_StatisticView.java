@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.detail.widget;
+package <%= appPackage %>.ui.detail.widget;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.mvpstarter.sample.R;
-import in.mvpstarter.sample.data.model.Statistic;
+import <%= appPackage %>.R;
+import <%= appPackage %>.data.model.Statistic;
 
 public class StatisticView extends RelativeLayout {
 

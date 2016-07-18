@@ -1,4 +1,4 @@
-package in.mvpstarter.sample;
+package <%= appPackage %>;
 
 import android.app.Application;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.content.Context;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
-import in.mvpstarter.sample.injection.component.ApplicationComponent;
-import in.mvpstarter.sample.injection.component.DaggerApplicationComponent;
-import in.mvpstarter.sample.injection.module.ApplicationModule;
+import <%= appPackage %>.injection.component.ApplicationComponent;
+import <%= appPackage %>.injection.component.DaggerApplicationComponent;
+import <%= appPackage %>.injection.module.ApplicationModule;
 import timber.log.Timber;
 
 public class MvpStarterApplication extends Application {

@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.common.injection.module;
+package <%= appPackage %>.common.injection.module;
 
 import android.app.Application;
 import android.content.Context;
@@ -7,9 +7,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import in.mvpstarter.sample.data.DataManager;
-import in.mvpstarter.sample.data.remote.MvpStarterService;
-import in.mvpstarter.sample.injection.ApplicationContext;
+import <%= appPackage %>.data.DataManager;
+import <%= appPackage %>.data.remote.MvpStarterService;
+import <%= appPackage %>.injection.ApplicationContext;
 
 import static org.mockito.Mockito.mock;
 

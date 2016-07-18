@@ -1,11 +1,11 @@
-package in.mvpstarter.sample.injection.component;
+package <%= appPackage %>.injection.component;
 
 import dagger.Subcomponent;
-import in.mvpstarter.sample.injection.PerActivity;
-import in.mvpstarter.sample.injection.module.ActivityModule;
-import in.mvpstarter.sample.ui.base.BaseActivity;
-import in.mvpstarter.sample.ui.detail.DetailActivity;
-import in.mvpstarter.sample.ui.main.MainActivity;
+import <%= appPackage %>.injection.PerActivity;
+import <%= appPackage %>.injection.module.ActivityModule;
+import <%= appPackage %>.ui.base.BaseActivity;
+import <%= appPackage %>.ui.detail.DetailActivity;
+import <%= appPackage %>.ui.main.MainActivity;
 
 @PerActivity
 @Subcomponent(modules = ActivityModule.class)

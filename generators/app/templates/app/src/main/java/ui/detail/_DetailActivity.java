@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.detail;
+package <%= appPackage %>.ui.detail;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,12 +16,12 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.mvpstarter.sample.R;
-import in.mvpstarter.sample.data.model.Pokemon;
-import in.mvpstarter.sample.data.model.Statistic;
-import in.mvpstarter.sample.ui.base.BaseActivity;
-import in.mvpstarter.sample.ui.common.ErrorView;
-import in.mvpstarter.sample.ui.detail.widget.StatisticView;
+import <%= appPackage %>.R;
+import <%= appPackage %>.data.model.Pokemon;
+import <%= appPackage %>.data.model.Statistic;
+import <%= appPackage %>.ui.base.BaseActivity;
+import <%= appPackage %>.ui.common.ErrorView;
+import <%= appPackage %>.ui.detail.widget.StatisticView;
 
 public class DetailActivity extends BaseActivity implements DetailMvpView, ErrorView.ErrorListener {
 

@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.base;
+package <%= appPackage %>.ui.base;
 
 /**
  * Every presenter in the app must either implement this interface or extend BasePresenter

@@ -1,8 +1,8 @@
-package in.mvpstarter.sample.ui.detail;
+package <%= appPackage %>.ui.detail;
 
-import in.mvpstarter.sample.data.model.Pokemon;
-import in.mvpstarter.sample.data.model.Statistic;
-import in.mvpstarter.sample.ui.base.MvpView;
+import <%= appPackage %>.data.model.Pokemon;
+import <%= appPackage %>.data.model.Statistic;
+import <%= appPackage %>.ui.base.MvpView;
 
 public interface DetailMvpView extends MvpView {
 

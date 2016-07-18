@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MvpStarter</string>
+    <string name="app_name"><%= appName %></string>
 
     <string name="dialog_action_ok">OK</string>
     <string name="dialog_action_cancel">Cancel</string>

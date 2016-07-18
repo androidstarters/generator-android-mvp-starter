@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.common;
+package <%= appPackage %>.ui.common;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import in.mvpstarter.sample.R;
+import <%= appPackage %>.R;
 
 public class ErrorView extends LinearLayout {
 

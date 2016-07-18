@@ -1,13 +1,13 @@
-package in.mvpstarter.sample.ui.detail;
+package <%= appPackage %>.ui.detail;
 
 
 import javax.inject.Inject;
 
-import in.mvpstarter.sample.data.DataManager;
-import in.mvpstarter.sample.data.model.Pokemon;
-import in.mvpstarter.sample.data.model.Statistic;
-import in.mvpstarter.sample.injection.ConfigPersistent;
-import in.mvpstarter.sample.ui.base.BasePresenter;
+import <%= appPackage %>.data.DataManager;
+import <%= appPackage %>.data.model.Pokemon;
+import <%= appPackage %>.data.model.Statistic;
+import <%= appPackage %>.injection.ConfigPersistent;
+import <%= appPackage %>.ui.base.BasePresenter;
 import rx.SingleSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.data.model;
+package <%= appPackage %>.data.model;
 
 public class NamedResource {
     public String name;

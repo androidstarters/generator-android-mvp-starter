@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.base;
+package <%= appPackage %>.ui.base;
 
 import rx.Observable;
 import rx.Single;

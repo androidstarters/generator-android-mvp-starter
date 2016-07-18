@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.ui.main;
+package <%= appPackage %>.ui.main;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import in.mvpstarter.sample.R;
+import <%= appPackage %>.R;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> {
 

@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.injection.component;
+package <%= appPackage %>.injection.component;
 
 import android.app.Application;
 import android.content.Context;
@@ -6,10 +6,10 @@ import android.content.Context;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import in.mvpstarter.sample.data.DataManager;
-import in.mvpstarter.sample.data.remote.MvpStarterService;
-import in.mvpstarter.sample.injection.ApplicationContext;
-import in.mvpstarter.sample.injection.module.ApplicationModule;
+import <%= appPackage %>.data.DataManager;
+import <%= appPackage %>.data.remote.MvpStarterService;
+import <%= appPackage %>.injection.ApplicationContext;
+import <%= appPackage %>.injection.module.ApplicationModule;
 
 @Singleton
 @Component(modules = ApplicationModule.class)

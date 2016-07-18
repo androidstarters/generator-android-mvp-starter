@@ -1,8 +1,4 @@
-# AndroidMvpStarter
-
-<p align="center">
-    <img src="art/screens.png" alt="MvpBoilerplate Screens"/>
-</p>
+# <%= appName %>
 
 An MVP Boilerplate to save me having to create the same project over from scratch every time! :)
 
@@ -47,7 +43,7 @@ To run **unit** tests on your machine:
 To run **instrumentation** tests on connected devices:
 
 ```sh
-./gradlew connectedAndroidTest
+./gradlew connected<%= appPackage %>
 ```
 
 ## Code Analysis tools

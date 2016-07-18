@@ -1,4 +1,4 @@
-package in.mvpstarter.sample.util;
+package <%= appPackage %>.util;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
