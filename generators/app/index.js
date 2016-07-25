@@ -57,7 +57,7 @@ module.exports = generator.Base.extend({
       }];
 
     return this.prompt(prompts).then(props => {
-      this.props.appPackage = props.name;
+      this.props.appPackage = props.package;
       this.templateDirectory = templateDirectory;
       this.appName = props.name;
       this.appPackage = props.package;
