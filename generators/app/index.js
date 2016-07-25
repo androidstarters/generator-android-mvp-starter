@@ -3,26 +3,24 @@
 const generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
 const path = require('path');
-var glob = require('glob');
 const yosay = require('yosay');
 const chalk = require('chalk');
 
 function templateDirectory(source, destination) {
   var root = this.isPathAbsolute(source) ? source : path.join(this.sourceRoot(), source);
+  var files = this.expandFiles('**', {dot: true, cwd: root});
 
-  glob('**/*.js', {dot: true, cwd: root}, function (er, files) {
-    for (var i = 0; i < files.length; i++) {
-      var f = files[i];
-      var src = path.join(root, f);
-      if (path.basename(f).indexOf('_') === 0) {
-        var templateDest = path.join(destination, path.dirname(f), path.basename(f).replace(/^_/, ''));
-        this.template(src, templateDest);
-      } else {
-        var dest = path.join(destination, f);
-        this.copy(src, dest);
-      }
+  for (var i = 0; i < files.length; i++) {
+    var f = files[i];
+    var src = path.join(root, f);
+    if (path.basename(f).indexOf('_') === 0) {
+      var destTemplate = path.join(destination, path.dirname(f), path.basename(f).replace(/^_/, ''));
+      this.template(src, destTemplate);
+    } else {
+      var destCopy = path.join(destination, f);
+      this.copy(src, destCopy);
     }
-  });
+  }
 }
 
 module.exports = generator.Base.extend({
@@ -84,12 +82,15 @@ module.exports = generator.Base.extend({
     this.copy('app/proguard-rules.pro', 'app/proguard-rules.pro');
     this.template('app/_build.gradle', 'app/build.gradle');
 
-    mkdirp('app/src/<%= appPackage %>/java/' + packageDir);
-    this.templateDirectory('app/src/<%= appPackage %>/java', 'app/src/<%= appPackage %>/java/' + packageDir);
-    this.templateDirectory('app/src/<%= appPackage %>/res', 'app/src/<%= appPackage %>/res');
+    mkdirp('app/src/androidTest/java/' + packageDir);
+    this.templateDirectory('app/src/androidTest/java', 'app/src/androidTest/java/' + packageDir);
 
     mkdirp('app/src/commonTest/java/' + packageDir);
     this.templateDirectory('app/src/commonTest/java', 'app/src/commonTest/java/' + packageDir);
+
+    mkdirp('app/src/debug');
+    this.template('app/src/debug/_AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
+    this.templateDirectory('app/src/debug/res', 'app/src/debug/res');
 
     mkdirp('app/src/main/assets');
     mkdirp('app/src/main/java/' + packageDir);
@@ -98,9 +99,11 @@ module.exports = generator.Base.extend({
     this.templateDirectory('app/src/main/java', 'app/src/main/java/' + packageDir);
     this.templateDirectory('app/src/main/res', 'app/src/main/res');
 
-    mkdirp('app/src/debug');
-    this.template('app/src/debug/_AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
-    this.templateDirectory('app/src/debug/res', 'app/src/debug/res');
+    mkdirp('app/src/release');
+    this.templateDirectory('app/src/release/res', 'app/src/release/res');
+
+    mkdirp('app/src/test/java/' + packageDir);
+    this.templateDirectory('app/src/test/java', 'app/src/test/java/' + packageDir);
   },
 
   install: function () {

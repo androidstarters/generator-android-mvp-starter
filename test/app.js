@@ -8,7 +8,7 @@ describe('generator-android-mvp-starter:app', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: 'SampleApp',
-        package: 'org.example.testapp',
+        package: 'com.sample.mvp',
         targetSdk: '21',
         minSdk: '14'
       })
@@ -32,7 +32,8 @@ describe('generator-android-mvp-starter:app', function () {
       'app/.gitignore',
       'app/build.gradle',
       'app/proguard-rules.pro',
-      'app/src/main/AndroidManifest.xml',
+      'app/src/main/java/com/sample/mvp',
+      'app/src/main/AndroidManifest.xml'
     ]);
   });
 
