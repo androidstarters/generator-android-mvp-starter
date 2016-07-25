@@ -1,6 +1,6 @@
 # <%= appName %>
 
-An MVP Boilerplate to save me having to create the same project over from scratch every time! :)
+App description goes here.
 
 ## This project uses:
 
@@ -43,7 +43,7 @@ To run **unit** tests on your machine:
 To run **instrumentation** tests on connected devices:
 
 ```sh
-./gradlew connected<%= appPackage %>
+./gradlew connectedAndroidTest
 ```
 
 ## Code Analysis tools
@@ -80,7 +80,7 @@ To ensure that your code is valid and stable use check:
 ```
 MIT License
 
-Copyright (c) 2016 Ravindra Kumar
+Copyright (c) 2016 <%= appName %>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

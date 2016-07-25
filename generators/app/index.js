@@ -3,13 +3,26 @@
 const generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
 const path = require('path');
-const slug = require('slug');
+var glob = require('glob');
 const yosay = require('yosay');
 const chalk = require('chalk');
-function makePackageName(name) {
-  name = slug(name).toLowerCase();
 
-  return name.indexOf('website-') === 0 ? name : name + '-website';
+function templateDirectory(source, destination) {
+  var root = this.isPathAbsolute(source) ? source : path.join(this.sourceRoot(), source);
+
+  glob('**/*.js', {dot: true, cwd: root}, function (er, files) {
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i];
+      var src = path.join(root, f);
+      if (path.basename(f).indexOf('_') === 0) {
+        var templateDest = path.join(destination, path.dirname(f), path.basename(f).replace(/^_/, ''));
+        this.template(src, templateDest);
+      } else {
+        var dest = path.join(destination, f);
+        this.copy(src, dest);
+      }
+    }
+  });
 }
 
 module.exports = generator.Base.extend({
@@ -46,71 +59,52 @@ module.exports = generator.Base.extend({
       }];
 
     return this.prompt(prompts).then(props => {
-      // this.props = props;
-      this.props.packageName = makePackageName(props.name);
-
+      this.props.appPackage = props.name;
+      this.templateDirectory = templateDirectory;
       this.appName = props.name;
       this.appPackage = props.package;
       this.androidTargetSdkVersion = props.targetSdk;
       this.androidMinSdkVersion = props.minSdk;
-
-    // done();
     });
   },
-  default: function () {
-    if (path.basename(this.destinationPath()) !== this.props.packageName) {
-      mkdirp(this.props.packageName);
-      this.destinationRoot(this.destinationPath(this.props.packageName));
-    }
 
-    this.composeWith('git-init', {}, {
-      local: require.resolve('generator-git-init')
-    });
-  },
   writing: function () {
-    this.fs.copy(
-      this.templatePath('app/**'),
-      this.destinationPath('app')
-    );
-    this.fs.copy(
-      this.templatePath('config/**'),
-      this.destinationPath('config')
-    );
-    this.fs.copy(
-      this.templatePath('grandle/**'),
-      this.destinationPath('grandle')
-    );
-    // this.fs.copyTpl(
-    //   this.templatePath('_source/css/site.sass'),
-    //   this.destinationPath('_source/css/site.sass'), {
-    //     backgroundColor: this.props.backgroundColor,
-    //     textColor: this.props.textColor,
-    //     accentColor: this.props.accentColor
-    //   }
-    // );
+    this.copy('gitignore', '.gitignore');
+    this.copy('_build.gradle', 'build.gradle');
+    this.copy('gradle.properties', 'gradle.properties');
+    this.copy('gradlew', 'gradlew');
+    this.copy('gradlew.bat', 'gradlew.bat');
+    this.copy('settings.gradle', 'settings.gradle');
+    this.template('_README.md', 'README.md');
+    this.directory('gradle', 'gradle');
 
-    this.fs.copy(
-      this.templatePath('gitignore'),
-      this.destinationPath('.gitignore')
-    );
-    // this.fs.copyTpl(
-    //   this.templatePath('package.json'),
-    //   this.destinationPath('package.json'), {
-    //     packageName: this.props.packageName,
-    //     authorName: this.props.authorName
-    //   }
-    // );
-    this.fs.copyTpl(
-      this.templatePath('_README.md'),
-      this.destinationPath('README.md'), {
-        packageName: this.props.packageName,
-        appName: this.props.appName,
-        appPackage: this.appPackage
-      }
-    );
+    var packageDir = this.props.appPackage.replace(/\./g, '/');
+    mkdirp('app');
+    this.copy('app/gitignore', 'app/.gitignore');
+    this.copy('app/proguard-rules.pro', 'app/proguard-rules.pro');
+    this.template('app/_build.gradle', 'app/build.gradle');
+
+    mkdirp('app/src/<%= appPackage %>/java/' + packageDir);
+    this.templateDirectory('app/src/<%= appPackage %>/java', 'app/src/<%= appPackage %>/java/' + packageDir);
+    this.templateDirectory('app/src/<%= appPackage %>/res', 'app/src/<%= appPackage %>/res');
+
+    mkdirp('app/src/commonTest/java/' + packageDir);
+    this.templateDirectory('app/src/commonTest/java', 'app/src/commonTest/java/' + packageDir);
+
+    mkdirp('app/src/main/assets');
+    mkdirp('app/src/main/java/' + packageDir);
+    this.directory('app/src/main/assets', 'app/src/main/assets');
+    this.template('app/src/main/_AndroidManifest.xml', 'app/src/main/AndroidManifest.xml');
+    this.templateDirectory('app/src/main/java', 'app/src/main/java/' + packageDir);
+    this.templateDirectory('app/src/main/res', 'app/src/main/res');
+
+    mkdirp('app/src/debug');
+    this.template('app/src/debug/_AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
+    this.templateDirectory('app/src/debug/res', 'app/src/debug/res');
   },
 
   install: function () {
     this.installDependencies({bower: false});
   }
 });
+

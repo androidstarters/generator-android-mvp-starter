@@ -1,6 +1,6 @@
 {
   "name": "generator-android-mvp-starter",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "An MVP Boilerplate to save me having to create the same project over from scratch every time! :)",
   "homepage": "https://github.com/androidstarter/android-mvp-starter",
   "author": {
@@ -19,12 +19,13 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
-    "yosay": "^1.0.0",
     "generator-git-init": "^1.1.3",
+    "glob": "^7.0.5",
     "mkdirp": "^0.5.1",
-    "slug": "^0.9.1"
+    "slug": "^0.9.1",
+    "yeoman-generator": "^0.23.0",
+    "yosay": "^1.0.0"
   },
   "devDependencies": {
     "yeoman-test": "^1.0.0",
