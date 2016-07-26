@@ -24,7 +24,7 @@
     "glob": "^7.0.5",
     "mkdirp": "^0.5.1",
     "slug": "^0.9.1",
-    "yeoman-generator": "^0.23.0",
+    "yeoman-generator": "^0.24.1",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
