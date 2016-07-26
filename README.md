@@ -13,6 +13,8 @@ npm install -g generator-android-mvp-starter
 Then generate your new project:
 
 ```bash
+mkdir NewApp
+cd NewApp
 yo android-mvp-starter
 ```
 
