@@ -1,4 +1,4 @@
-# generator-android-mvp-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](coveralls-image)](coveralls-url)
+# generator-android-mvp-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/androidstarter/generator-android-mvp-starter/badge.svg?branch=master)](https://coveralls.io/github/androidstarter/generator-android-mvp-starter?branch=master)
 > An MVP Boilerplate to save me having to create the same project over from scratch every time! :)
 
 ## Installation
