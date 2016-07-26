@@ -1,4 +1,4 @@
-# generator-android-mvp-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-android-mvp-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](coveralls-image)](coveralls-url)
 > An MVP Boilerplate to save me having to create the same project over from scratch every time! :)
 
 ## Installation
@@ -29,12 +29,11 @@ yo android-mvp-starter
 
 Apache-2.0 © [Ravindra Kumar](https://github.com/ravidsrk/)
 
-
 [npm-image]: https://badge.fury.io/js/generator-android-mvp-starter.svg
 [npm-url]: https://npmjs.org/package/generator-android-mvp-starter
 [travis-image]: https://travis-ci.org/androidstarter/generator-android-mvp-starter.svg?branch=master
 [travis-url]: https://travis-ci.org/androidstarter/generator-android-mvp-starter
 [daviddm-image]: https://david-dm.org/androidstarter/generator-android-mvp-starter.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/androidstarter/generator-android-mvp-starter
-[coveralls-image]: https://coveralls.io/repos/androidstarter/generator-android-mvp-starter/badge.svg
-[coveralls-url]: https://coveralls.io/r/androidstarter/generator-android-mvp-starter
+[coveralls-image]: https://coveralls.io/repos/github/androidstarter/generator-android-mvp-starter/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/androidstarter/generator-android-mvp-starter?branch=master
