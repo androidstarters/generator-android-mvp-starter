@@ -32,9 +32,9 @@ Apache-2.0 © [Ravindra Kumar](https://github.com/ravidsrk/)
 
 [npm-image]: https://badge.fury.io/js/generator-android-mvp-starter.svg
 [npm-url]: https://npmjs.org/package/generator-android-mvp-starter
-[travis-image]: https://travis-ci.org/androidstarter/generator-android-mvp-starter.svg?branch=master
-[travis-url]: https://travis-ci.org/androidstarter/generator-android-mvp-starter
-[daviddm-image]: https://david-dm.org/androidstarter/generator-android-mvp-starter.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/androidstarter/generator-android-mvp-starter
-[coveralls-image]: https://coveralls.io/repos/github/androidstarter/generator-android-mvp-starter/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/androidstarter/generator-android-mvp-starter?branch=master
+[travis-image]: https://travis-ci.org/ravidsrk/generator-android-mvp-starter.svg?branch=master
+[travis-url]: https://travis-ci.org/ravidsrk/generator-android-mvp-starter
+[daviddm-image]: https://david-dm.org/ravidsrk/generator-android-mvp-starter.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/ravidsrk/generator-android-mvp-starter
+[coveralls-image]: https://coveralls.io/repos/github/ravidsrk/generator-android-mvp-starter/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/ravidsrk/generator-android-mvp-starter?branch=master
