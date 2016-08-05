@@ -32,7 +32,7 @@ describe('generator-android-mvp-starter:app', function () {
       'app/.gitignore',
       'app/build.gradle',
       'app/proguard-rules.pro',
-      'app/src/main/java/com/sample/mvp',
+      'app/src/main/java/com/sample/mvp/MvpStarterApplication.java',
       'app/src/main/AndroidManifest.xml'
     ]);
   });

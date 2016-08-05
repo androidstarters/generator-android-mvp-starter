@@ -68,42 +68,42 @@ module.exports = generator.Base.extend({
 
   writing: function () {
     this.copy('gitignore', '.gitignore');
-    this.copy('_build.gradle', 'build.gradle');
+    this.copy('build.gradle', 'build.gradle');
     this.copy('gradle.properties', 'gradle.properties');
     this.copy('gradlew', 'gradlew');
     this.copy('gradlew.bat', 'gradlew.bat');
     this.copy('settings.gradle', 'settings.gradle');
-    this.template('_README.md', 'README.md');
+    this.template('README.md', 'README.md');
     this.directory('gradle', 'gradle');
 
     var packageDir = this.props.appPackage.replace(/\./g, '/');
     mkdirp('app');
     this.copy('app/gitignore', 'app/.gitignore');
     this.copy('app/proguard-rules.pro', 'app/proguard-rules.pro');
-    this.template('app/_build.gradle', 'app/build.gradle');
+    this.template('app/build.gradle', 'app/build.gradle');
 
     mkdirp('app/src/androidTest/java/' + packageDir);
-    this.templateDirectory('app/src/androidTest/java', 'app/src/androidTest/java/' + packageDir);
+    this.template('app/src/androidTest/java/in/mvpstarter/sample', 'app/src/androidTest/java/' + packageDir, this, {});
 
     mkdirp('app/src/commonTest/java/' + packageDir);
-    this.templateDirectory('app/src/commonTest/java', 'app/src/commonTest/java/' + packageDir);
+    this.template('app/src/commonTest/java/in/mvpstarter/sample', 'app/src/commonTest/java/' + packageDir, this, {});
 
     mkdirp('app/src/debug');
-    this.template('app/src/debug/_AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
-    this.templateDirectory('app/src/debug/res', 'app/src/debug/res');
+    this.template('app/src/debug/AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
+    this.template('app/src/debug/res', 'app/src/debug/res', this, {});
 
     mkdirp('app/src/main/assets');
     mkdirp('app/src/main/java/' + packageDir);
     this.directory('app/src/main/assets', 'app/src/main/assets');
-    this.template('app/src/main/_AndroidManifest.xml', 'app/src/main/AndroidManifest.xml');
-    this.templateDirectory('app/src/main/java', 'app/src/main/java/' + packageDir);
-    this.templateDirectory('app/src/main/res', 'app/src/main/res');
+    this.template('app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml');
+    this.template('app/src/main/java/in/mvpstarter/sample', 'app/src/main/java/' + packageDir, this, {});
+    this.template('app/src/main/res', 'app/src/main/res', this, {});
 
     mkdirp('app/src/release');
-    this.templateDirectory('app/src/release/res', 'app/src/release/res');
+    this.template('app/src/release/res', 'app/src/release/res', this, {});
 
     mkdirp('app/src/test/java/' + packageDir);
-    this.templateDirectory('app/src/test/java', 'app/src/test/java/' + packageDir);
+    this.template('app/src/test/java/in/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
   },
 
   install: function () {
