@@ -2,6 +2,23 @@
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/androidstarter/generator-android-mvp-starter/badge.svg?branch=master)](https://coveralls.io/github/androidstarter/generator-android-mvp-starter?branch=master)
 > An MVP Boilerplate to save me having to create the same project over from scratch every time! :)
 
+## How it works?
+It provides a generator to create and maintain a android application based on the latests frameworks and patterns used by the community.
+Stack:
+- [RxJava](https://github.com/ReactiveX/RxJava) and [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+- [Retrofit](http://square.github.io/retrofit/) / [OkHttp](http://square.github.io/okhttp/)
+- [Gson](https://github.com/google/gson)
+- [Dagger 2](http://google.github.io/dagger/)
+- [Butterknife](https://github.com/JakeWharton/butterknife)
+- [Google Play Services](https://developers.google.com/android/guides/overview)
+- [Timber](https://github.com/JakeWharton/timber)
+- [Glide 3](https://github.com/bumptech/glide)
+- [Stetho](http://facebook.github.io/stetho/)
+- [Espresso](https://google.github.io/android-testing-support-library/) for UI tests
+- [Robolectric](http://robolectric.org/) for framework specific unit tests
+- [Mockito](http://mockito.org/)
+- [Checkstyle](http://checkstyle.sourceforge.net/), [PMD](https://pmd.github.io/) and [Findbugs](http://findbugs.sourceforge.net/) for code analysis
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-android-mvp-starter using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
