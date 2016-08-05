@@ -2,26 +2,8 @@
 
 const generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
-const path = require('path');
 const yosay = require('yosay');
 const chalk = require('chalk');
-
-function templateDirectory(source, destination) {
-  var root = this.isPathAbsolute(source) ? source : path.join(this.sourceRoot(), source);
-  var files = this.expandFiles('**', {dot: true, cwd: root});
-
-  for (var i = 0; i < files.length; i++) {
-    var f = files[i];
-    var src = path.join(root, f);
-    if (path.basename(f).indexOf('_') === 0) {
-      var destTemplate = path.join(destination, path.dirname(f), path.basename(f).replace(/^_/, ''));
-      this.template(src, destTemplate);
-    } else {
-      var destCopy = path.join(destination, f);
-      this.copy(src, destCopy);
-    }
-  }
-}
 
 module.exports = generator.Base.extend({
   initializing: function () {
@@ -58,7 +40,6 @@ module.exports = generator.Base.extend({
 
     return this.prompt(prompts).then(props => {
       this.props.appPackage = props.package;
-      this.templateDirectory = templateDirectory;
       this.appName = props.name;
       this.appPackage = props.package;
       this.androidTargetSdkVersion = props.targetSdk;
