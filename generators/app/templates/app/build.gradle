@@ -8,7 +8,7 @@ apply plugin: 'com.github.triplet.play'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion "24.0.1"
 
     dexOptions {
         maxProcessCount 4
@@ -74,8 +74,8 @@ retrolambda {
 }
 
 dependencies {
-    final PLAY_SERVICES_VERSION = '9.2.1'
-    final SUPPORT_LIBRARY_VERSION = '24.0.0'
+    final PLAY_SERVICES_VERSION = '9.4.0'
+    final SUPPORT_LIBRARY_VERSION = '24.1.1'
     final RETROFIT_VERSION = '2.1.0'
     final OKHTTP_VERSION = '3.4.1'
     final DAGGER_VERSION = '2.5'
