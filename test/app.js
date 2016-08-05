@@ -4,6 +4,8 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('generator-android-mvp-starter:app', function () {
+  this.timeout(15000);
+  
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
