@@ -85,10 +85,6 @@ module.exports = generator.Base.extend({
 
     mkdirp('app/src/test/java/' + packageDir);
     this.template('app/src/test/java/in/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
-  },
-
-  install: function () {
-    this.installDependencies({bower: false});
   }
 });
 
