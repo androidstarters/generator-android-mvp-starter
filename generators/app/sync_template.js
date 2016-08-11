@@ -1,24 +1,20 @@
 'use strict';
 
-const renamer = require('renamer');
-const rimraf = require('rimraf');
-const async = require('async');
 const path = require('path');
+const rimraf = require('rimraf');
 const mv = require('mv');
 const mkdirp = require('mkdirp');
-const Git = require('nodegit');
+const clone = require('nodegit').Clone;
 const replace = require('replace');
-const filter = require('filter-files');
-const findInFiles = require('find-in-files');
 const ncp = require('ncp').ncp;
-const Finder = require('fs-finder');
 
 // Clone a given repository into the `./tmp` folder.
-rimraf.sync(__dirname + '/templates');
-rimraf.sync(__dirname + '/tmp');
+
+rimraf.sync(path.join(__dirname, '/templates'));
+rimraf.sync(path.join(__dirname, '/tmp'));
 mkdirp('./templates');
 
-Git.Clone('https://github.com/ravidsrk/android-mvp-starter', './tmp')
+clone('https://github.com/ravidsrk/android-mvp-starter', './tmp')
   .then(function (repo) {
     checkOutAndCopy(repo, 'master');
   })
@@ -42,10 +38,16 @@ function checkOutAndCopy(repo, name) {
       });
 
       mv('./tmp/.gitignore', './tmp/gitignore', function (err) {
+        if (err) {
+          console.log(err);
+        }
         console.log('Renamed root folder .gitignore');
       });
 
       mv('./tmp/app/.gitignore', './tmp/app/gitignore', function (err) {
+        if (err) {
+          console.log(err);
+        }
         console.log('Renamed app folder .gitignore');
       });
 
@@ -56,7 +58,7 @@ function checkOutAndCopy(repo, name) {
           return console.error(err);
         }
         console.log('Copying complete!');
-        rimraf.sync(__dirname + '/tmp');
+        rimraf.sync(path.join(__dirname, '/tmp'));
       });
     });
 }
