@@ -1,29 +1,29 @@
-# <%= appName %>
+# AndroidMvpStarter [![Build Status](https://travis-ci.org/ravidsrk/android-mvp-starter.svg?branch=master)](https://travis-ci.org/ravidsrk/android-mvp-starter)
 
-App description goes here.
+An MVP Boilerplate to save me having to create the same project over from scratch every time! :)
 
 ## This project uses:
-
-- Support libraries: AppCompat, Design.
 - [RxJava](https://github.com/ReactiveX/RxJava) and [RxAndroid](https://github.com/ReactiveX/RxAndroid)
-- [Retrofit 2](http://square.github.io/retrofit/)
+- [Retrofit](http://square.github.io/retrofit/) / [OkHttp](http://square.github.io/okhttp/)
+- [Gson](https://github.com/google/gson)
 - [Dagger 2](http://google.github.io/dagger/)
 - [Butterknife](https://github.com/JakeWharton/butterknife)
+- [Google Play Services](https://developers.google.com/android/guides/overview)
 - [Timber](https://github.com/JakeWharton/timber)
 - [Glide 3](https://github.com/bumptech/glide)
+- [Stetho](http://facebook.github.io/stetho/)
 - [Espresso](https://google.github.io/android-testing-support-library/) for UI tests
 - [Robolectric](http://robolectric.org/) for framework specific unit tests
 - [Mockito](http://mockito.org/)
 - [Checkstyle](http://checkstyle.sourceforge.net/), [PMD](https://pmd.github.io/) and [Findbugs](http://findbugs.sourceforge.net/) for code analysis
 
-## Requirements
-
- - [Android SDK](http://developer.android.com/sdk/index.html).
- - Android [4.3 (API 18) ](http://developer.android.com/tools/revisions/platforms.html#4.3).
- - Android SDK Tools
- - Android SDK Build tools 23.0.2
- - Android Support Repository
- - Android Support libraries
+## Create new project using yeoman [generator-android-mvp-starter](https://github.com/ravidsrk/generator-android-mvp-starter)
+```bash
+npm install -g yo
+npm install -g generator-android-mvp-starter
+mkdir NewApp && cd $_
+yo android-mvp-starter
+```
 
 ## Building
 
@@ -80,7 +80,7 @@ To ensure that your code is valid and stable use check:
 ```
 MIT License
 
-Copyright (c) 2016 <%= appName %>
+Copyright (c) 2016 Ravindra Kumar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

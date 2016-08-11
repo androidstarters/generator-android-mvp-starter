@@ -10,16 +10,17 @@ module.exports = generator.Base.extend({
     this.props = {};
   },
   prompting: function () {
-    // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the rad ' + chalk.red('Android MVP Starter') + ' generator!'
     ));
-    const prompts = [{
-      name: 'name',
-      message: 'What are you calling your app?',
-      store: true,
-      default: this.appname // Default to current folder name
-    },
+
+    const prompts = [
+      {
+        name: 'name',
+        message: 'What are you calling your app?',
+        store: true,
+        default: this.appname // Default to current folder name
+      },
       {
         name: 'package',
         message: 'What package will you be publishing the app under?',
@@ -29,13 +30,91 @@ module.exports = generator.Base.extend({
         name: 'targetSdk',
         message: 'What Android SDK will you be targeting?',
         store: true,
-        default: 23  // Android 6.0 (Marshmallow)
+        default: 23 // Android 6.0 (Marshmallow)
       },
       {
         name: 'minSdk',
         message: 'What is the minimum Android SDK you wish to support?',
         store: true,
-        default: 15  // Android 4.0 (Ice Cream Sandwich)
+        default: 15 // Android 4.0 (Ice Cream Sandwich)
+      },
+      {
+        type: 'list',
+        name: 'image',
+        message: 'What Image Lib would you like to use? ',
+        choices: [{
+          value: 'glide',
+          name: 'Glide'
+        },
+          {
+            value: 'picasso',
+            name: 'Picasso'
+          },
+          {
+            value: 'none',
+            name: 'None'
+          }],
+        default: 'glide'
+      },
+      {
+        type: 'confirm',
+        name: 'butterknife',
+        message: 'Use ButterKnife? ',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'calligraphy',
+        message: 'Would you like to use calligraphy for custom fonts?',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'timber',
+        message: 'Would you like to use Timber for logs?',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'stetho',
+        message: 'Would you like to use Stetho for Network Monitoring?',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'autoparcel',
+        message: 'Would you like to use AutoParcel?',
+        default: true
+      },
+      {
+        type: 'checkbox',
+        name: 'playServices',
+        message: 'Enable Google Play Services Libraries?',
+        choices: [
+        {name: 'base', value: 'base'},
+        {name: 'location', value: 'location'},
+        {name: 'gcm', value: 'gcm'},
+        {name: 'maps', value: 'maps'},
+        {name: 'plus', value: 'plus'},
+        {name: 'auth', value: 'auth'},
+        {name: 'identity', value: 'identity'},
+        {name: 'appindexing', value: 'appindexing'},
+        {name: 'appinvite', value: 'appinvite'},
+        {name: 'analytics', value: 'analytics'},
+        {name: 'cast', value: 'cast'},
+        {name: 'drive', value: 'drive'},
+        {name: 'fitness', value: 'fitness'},
+        {name: 'ads', value: 'ads'},
+        {name: 'vision', value: 'vision'},
+        {name: 'nearby', value: 'nearby'},
+        {name: 'panorama', value: 'panorama'},
+        {name: 'games', value: 'games'},
+        {name: 'wearable', value: 'wearable'},
+        {name: 'safetynet', value: 'safetynet'},
+        {name: 'wallet', value: 'wallet'},
+        {name: 'wearable', value: 'wearable'}
+        ],
+        default: ['no']
       }];
 
     return this.prompt(prompts).then(props => {
@@ -87,4 +166,3 @@ module.exports = generator.Base.extend({
     this.template('app/src/test/java/in/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
   }
 });
-
