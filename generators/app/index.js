@@ -37,84 +37,6 @@ module.exports = generator.Base.extend({
         message: 'What is the minimum Android SDK you wish to support?',
         store: true,
         default: 15 // Android 4.0 (Ice Cream Sandwich)
-      },
-      {
-        type: 'list',
-        name: 'image',
-        message: 'What Image Lib would you like to use? ',
-        choices: [{
-          value: 'glide',
-          name: 'Glide'
-        },
-          {
-            value: 'picasso',
-            name: 'Picasso'
-          },
-          {
-            value: 'none',
-            name: 'None'
-          }],
-        default: 'glide'
-      },
-      {
-        type: 'confirm',
-        name: 'butterknife',
-        message: 'Use ButterKnife? ',
-        default: true
-      },
-      {
-        type: 'confirm',
-        name: 'calligraphy',
-        message: 'Would you like to use calligraphy for custom fonts?',
-        default: true
-      },
-      {
-        type: 'confirm',
-        name: 'timber',
-        message: 'Would you like to use Timber for logs?',
-        default: true
-      },
-      {
-        type: 'confirm',
-        name: 'stetho',
-        message: 'Would you like to use Stetho for Network Monitoring?',
-        default: true
-      },
-      {
-        type: 'confirm',
-        name: 'autoparcel',
-        message: 'Would you like to use AutoParcel?',
-        default: true
-      },
-      {
-        type: 'checkbox',
-        name: 'playServices',
-        message: 'Enable Google Play Services Libraries?',
-        choices: [
-        {name: 'base', value: 'base'},
-        {name: 'location', value: 'location'},
-        {name: 'gcm', value: 'gcm'},
-        {name: 'maps', value: 'maps'},
-        {name: 'plus', value: 'plus'},
-        {name: 'auth', value: 'auth'},
-        {name: 'identity', value: 'identity'},
-        {name: 'appindexing', value: 'appindexing'},
-        {name: 'appinvite', value: 'appinvite'},
-        {name: 'analytics', value: 'analytics'},
-        {name: 'cast', value: 'cast'},
-        {name: 'drive', value: 'drive'},
-        {name: 'fitness', value: 'fitness'},
-        {name: 'ads', value: 'ads'},
-        {name: 'vision', value: 'vision'},
-        {name: 'nearby', value: 'nearby'},
-        {name: 'panorama', value: 'panorama'},
-        {name: 'games', value: 'games'},
-        {name: 'wearable', value: 'wearable'},
-        {name: 'safetynet', value: 'safetynet'},
-        {name: 'wallet', value: 'wallet'},
-        {name: 'wearable', value: 'wearable'}
-        ],
-        default: ['no']
       }];
 
     return this.prompt(prompts).then(props => {
@@ -127,42 +49,39 @@ module.exports = generator.Base.extend({
   },
 
   writing: function () {
+    var packageDir = this.props.appPackage.replace(/\./g, '/');
+
+    mkdirp('app');
+    mkdirp('app/src/main/assets');
+    mkdirp('app/src/main/java/' + packageDir);
+    mkdirp('app/src/androidTest/java/' + packageDir);
+    mkdirp('app/src/commonTest/java/' + packageDir);
+    mkdirp('app/src/debug');
+    mkdirp('app/src/release');
+    mkdirp('app/src/test/java/' + packageDir);
+
     this.copy('gitignore', '.gitignore');
     this.copy('build.gradle', 'build.gradle');
     this.copy('gradle.properties', 'gradle.properties');
     this.copy('gradlew', 'gradlew');
     this.copy('gradlew.bat', 'gradlew.bat');
     this.copy('settings.gradle', 'settings.gradle');
-    this.template('README.md', 'README.md');
-    this.directory('gradle', 'gradle');
-
-    var packageDir = this.props.appPackage.replace(/\./g, '/');
-    mkdirp('app');
     this.copy('app/gitignore', 'app/.gitignore');
     this.copy('app/proguard-rules.pro', 'app/proguard-rules.pro');
+
+    this.directory('gradle', 'gradle');
+    this.directory('app/src/main/assets', 'app/src/main/assets');
+
+    this.template('README.md', 'README.md');
     this.template('app/build.gradle', 'app/build.gradle');
-
-    mkdirp('app/src/androidTest/java/' + packageDir);
     this.template('app/src/androidTest/java/in/mvpstarter/sample', 'app/src/androidTest/java/' + packageDir, this, {});
-
-    mkdirp('app/src/commonTest/java/' + packageDir);
     this.template('app/src/commonTest/java/in/mvpstarter/sample', 'app/src/commonTest/java/' + packageDir, this, {});
-
-    mkdirp('app/src/debug');
     this.template('app/src/debug/AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
     this.template('app/src/debug/res', 'app/src/debug/res', this, {});
-
-    mkdirp('app/src/main/assets');
-    mkdirp('app/src/main/java/' + packageDir);
-    this.directory('app/src/main/assets', 'app/src/main/assets');
     this.template('app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml');
     this.template('app/src/main/java/in/mvpstarter/sample', 'app/src/main/java/' + packageDir, this, {});
     this.template('app/src/main/res', 'app/src/main/res', this, {});
-
-    mkdirp('app/src/release');
     this.template('app/src/release/res', 'app/src/release/res', this, {});
-
-    mkdirp('app/src/test/java/' + packageDir);
     this.template('app/src/test/java/in/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
   }
 });
