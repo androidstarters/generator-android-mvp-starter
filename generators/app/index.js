@@ -70,7 +70,9 @@ module.exports = generator.Base.extend({
     this.copy('app/proguard-rules.pro', 'app/proguard-rules.pro');
 
     this.directory('gradle', 'gradle');
+    this.directory('config', 'config');
     this.directory('app/src/main/assets', 'app/src/main/assets');
+    this.directory('app/src/main/res', 'app/src/main/res', this, {});
 
     this.template('README.md', 'README.md');
     this.template('app/build.gradle', 'app/build.gradle');
@@ -81,7 +83,7 @@ module.exports = generator.Base.extend({
     this.template('app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml');
     this.template('app/src/main/java/in/mvpstarter/sample', 'app/src/main/java/' + packageDir, this, {});
     this.template('app/src/main/res', 'app/src/main/res', this, {});
-    this.template('app/src/release/res', 'app/src/release/res', this, {});
+    this.template('app/src/release/res/layout', 'app/src/release/res/layout', this, {});
     this.template('app/src/test/java/in/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
   }
 });
