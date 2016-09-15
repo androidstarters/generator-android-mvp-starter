@@ -1,4 +1,6 @@
 # generator-android-mvp-starter 
+
+[![Join the chat at https://gitter.im/generator-android-mvp-starter/Lobby](https://badges.gitter.im/generator-android-mvp-starter/Lobby.svg)](https://gitter.im/generator-android-mvp-starter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/ravidsrk/generator-android-mvp-starter/badge.svg?branch=master)](https://coveralls.io/github/ravidsrk/generator-android-mvp-starter?branch=master)
 > An MVP Boilerplate to save me having to create the same project over from scratch every time! :)
 
