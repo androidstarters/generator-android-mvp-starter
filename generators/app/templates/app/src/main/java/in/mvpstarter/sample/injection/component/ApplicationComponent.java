@@ -7,7 +7,6 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import <%= appPackage %>.data.DataManager;
-import <%= appPackage %>.data.remote.MvpStarterService;
 import <%= appPackage %>.injection.ApplicationContext;
 import <%= appPackage %>.injection.module.ApplicationModule;
 import <%= appPackage %>.injection.module.NetworkModule;

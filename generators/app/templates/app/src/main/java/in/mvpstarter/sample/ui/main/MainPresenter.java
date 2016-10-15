@@ -45,14 +45,13 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(pokemon -> {
-                        getMvpView().showProgress(false);
-                        getMvpView().showPokemon(pokemon);
-                    }, error -> {
+                    getMvpView().showProgress(false);
+                    getMvpView().showPokemon(pokemon);
+                }, error -> {
                         getMvpView().showProgress(false);
                         getMvpView().showError();
                         Timber.e(error, "There was an error retrieving the pokemon");
-                    }
-                ));
+                    }));
     }
 
 
