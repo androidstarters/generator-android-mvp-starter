@@ -10,9 +10,11 @@ import <%= appPackage %>.data.DataManager;
 import <%= appPackage %>.data.remote.MvpStarterService;
 import <%= appPackage %>.injection.ApplicationContext;
 import <%= appPackage %>.injection.module.ApplicationModule;
+import <%= appPackage %>.injection.module.NetworkModule;
+import retrofit2.Retrofit;
 
 @Singleton
-@Component(modules = ApplicationModule.class)
+@Component(modules = {ApplicationModule.class, NetworkModule.class})
 public interface ApplicationComponent {
 
     @ApplicationContext
@@ -22,5 +24,5 @@ public interface ApplicationComponent {
 
     DataManager dataManager();
 
-    MvpStarterService mvpBoilerplateService();
+    Retrofit provideRetrofit();
 }

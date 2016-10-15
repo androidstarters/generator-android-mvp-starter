@@ -52,13 +52,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, PokemonAd
 
         mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.primary);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.white);
-        mSwipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        mMainPresenter.getPokemon(POKEMON_COUNT);
-                    }
-                });
+        mSwipeRefreshLayout.setOnRefreshListener(() -> mMainPresenter.getPokemon(POKEMON_COUNT));
 
         mPokemonAdapter.setClickListener(this);
         mPokemonRecycler.setLayoutManager(new LinearLayoutManager(this));

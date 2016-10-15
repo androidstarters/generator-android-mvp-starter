@@ -67,10 +67,9 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
         public PokemonViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mClickListener != null) mClickListener.onPokemonClick(mPokemon);
+            itemView.setOnClickListener(v -> {
+                if (mClickListener != null) {
+                    mClickListener.onPokemonClick(mPokemon);
                 }
             });
         }

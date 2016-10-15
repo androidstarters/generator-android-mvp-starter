@@ -44,23 +44,18 @@ public class DetailPresenter extends BasePresenter<DetailMvpView> {
         mSubscriptions.add(mDataManager.getPokemon(name)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new SingleSubscriber<Pokemon>() {
-                    @Override
-                    public void onSuccess(Pokemon pokemon) {
+                .subscribe(pokemon ->  {
                         getMvpView().showProgress(false);
                         getMvpView().showPokemon(pokemon);
                         for (Statistic statistic : pokemon.stats) {
                             getMvpView().showStat(statistic);
                         }
-                    }
-
-                    @Override
-                    public void onError(Throwable error) {
+                    }, error -> {
                         getMvpView().showProgress(false);
                         getMvpView().showError();
                         Timber.e(error, "There was a problem retrieving the pokemon...");
                     }
-                }));
+                ));
     }
 
 
