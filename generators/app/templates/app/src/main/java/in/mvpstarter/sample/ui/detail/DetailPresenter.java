@@ -4,11 +4,9 @@ package <%= appPackage %>.ui.detail;
 import javax.inject.Inject;
 
 import <%= appPackage %>.data.DataManager;
-import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.Statistic;
 import <%= appPackage %>.injection.ConfigPersistent;
 import <%= appPackage %>.ui.base.BasePresenter;
-import rx.SingleSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
