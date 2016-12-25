@@ -4,9 +4,11 @@ package <%= appPackage %>.ui.detail;
 import javax.inject.Inject;
 
 import <%= appPackage %>.data.DataManager;
+import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.Statistic;
 import <%= appPackage %>.injection.ConfigPersistent;
 import <%= appPackage %>.ui.base.BasePresenter;
+import rx.SingleSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
@@ -19,7 +21,7 @@ public class DetailPresenter extends BasePresenter<DetailMvpView> {
     private CompositeSubscription mSubscriptions;
 
     @Inject
-    public DetailPresenter(DataManager dataManager) {
+    DetailPresenter(DataManager dataManager) {
         mDataManager = dataManager;
     }
 
@@ -36,24 +38,29 @@ public class DetailPresenter extends BasePresenter<DetailMvpView> {
         mSubscriptions = null;
     }
 
-    public void getPokemon(String name) {
+    void getPokemon(String name) {
         checkViewAttached();
         getMvpView().showProgress(true);
         mSubscriptions.add(mDataManager.getPokemon(name)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(pokemon ->  {
-                            getMvpView().showProgress(false);
-                            getMvpView().showPokemon(pokemon);
-                            for (Statistic statistic : pokemon.stats) {
-                                getMvpView().showStat(statistic);
-                            }
-                }, error -> {
-                            getMvpView().showProgress(false);
-                            getMvpView().showError();
-                            Timber.e(error, "There was a problem retrieving the pokemon...");
+                .subscribe(new SingleSubscriber<Pokemon>() {
+                    @Override
+                    public void onSuccess(Pokemon pokemon) {
+                        getMvpView().showProgress(false);
+                        getMvpView().showPokemon(pokemon);
+                        for (Statistic statistic : pokemon.stats) {
+                            getMvpView().showStat(statistic);
+                        }
                     }
-                ));
+
+                    @Override
+                    public void onError(Throwable error) {
+                        getMvpView().showProgress(false);
+                        getMvpView().showError();
+                        Timber.e(error, "There was a problem retrieving the pokemon...");
+                    }
+                }));
     }
 
 

@@ -10,7 +10,6 @@ import <%= appPackage %>.data.model.NamedResource;
 import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.PokemonListResponse;
 import <%= appPackage %>.data.remote.MvpStarterService;
-import retrofit2.Retrofit;
 import rx.Single;
 import rx.functions.Func1;
 
@@ -20,8 +19,8 @@ public class DataManager {
     private final MvpStarterService mMvpStarterService;
 
     @Inject
-    public DataManager(Retrofit retrofit) {
-        mMvpStarterService = retrofit.create(MvpStarterService.class);
+    public DataManager(MvpStarterService mvpStarterService) {
+        mMvpStarterService = mvpStarterService;
     }
 
     public Single<List<String>> getPokemonList(int limit) {
