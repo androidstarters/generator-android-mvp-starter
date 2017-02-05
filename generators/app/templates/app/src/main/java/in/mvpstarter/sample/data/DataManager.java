@@ -10,8 +10,8 @@ import <%= appPackage %>.data.model.NamedResource;
 import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.PokemonListResponse;
 import <%= appPackage %>.data.remote.MvpStarterService;
-import rx.Single;
-import rx.functions.Func1;
+import io.reactivex.Single;
+import io.reactivex.functions.Function;
 
 @Singleton
 public class DataManager {
@@ -25,9 +25,9 @@ public class DataManager {
 
     public Single<List<String>> getPokemonList(int limit) {
         return mMvpStarterService.getPokemonList(limit)
-                .flatMap(new Func1<PokemonListResponse, Single<List<String>>>() {
+                .flatMap(new Function<PokemonListResponse, Single<List<String>>>() {
                     @Override
-                    public Single<List<String>> call(PokemonListResponse pokemonListResponse) {
+                    public Single<List<String>> apply(PokemonListResponse pokemonListResponse) {
                         List<String> pokemonNames = new ArrayList<>();
                         for (NamedResource pokemon : pokemonListResponse.results) {
                             pokemonNames.add(pokemon.name);

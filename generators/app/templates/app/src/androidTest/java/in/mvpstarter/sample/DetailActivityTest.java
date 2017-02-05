@@ -16,7 +16,7 @@ import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.Statistic;
 import <%= appPackage %>.ui.detail.DetailActivity;
 import <%= appPackage %>.util.ErrorTestUtil;
-import rx.Single;
+import io.reactivex.Single;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
