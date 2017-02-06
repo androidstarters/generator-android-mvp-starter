@@ -24,17 +24,12 @@ public class DataManager {
     }
 
     public Single<List<String>> getPokemonList(int limit) {
-        return mMvpStarterService.getPokemonList(limit)
-                .flatMap(new Function<PokemonListResponse, Single<List<String>>>() {
-                    @Override
-                    public Single<List<String>> apply(PokemonListResponse pokemonListResponse) {
-                        List<String> pokemonNames = new ArrayList<>();
-                        for (NamedResource pokemon : pokemonListResponse.results) {
-                            pokemonNames.add(pokemon.name);
-                        }
-                        return Single.just(pokemonNames);
-                    }
-                });
+      return mMvpStarterService.getPokemonList(limit)
+              .map(pokemonListResponse -> pokemonListResponse.results)
+              .flatMapObservable(namedResources -> Observable.just(namedResources))
+              .flatMapIterable(namedResources -> namedResources)
+              .map(namedResource -> namedResource.name)
+              .toList();
     }
 
     public Single<Pokemon> getPokemon(String name) {
