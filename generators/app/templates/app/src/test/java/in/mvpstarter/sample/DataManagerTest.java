@@ -1,4 +1,4 @@
-package <%= appPackage %>.data;
+package <%= appPackage %>;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -10,6 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import <%= appPackage %>.common.TestDataFactory;
+import <%= appPackage %>.data.DataManager;
 import <%= appPackage %>.data.model.NamedResource;
 import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.PokemonListResponse;
@@ -17,8 +18,8 @@ import <%= appPackage %>.data.remote.MvpStarterService;
 import <%= appPackage %>.util.RxSchedulersOverrideRule;
 import io.reactivex.Single;
 
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)

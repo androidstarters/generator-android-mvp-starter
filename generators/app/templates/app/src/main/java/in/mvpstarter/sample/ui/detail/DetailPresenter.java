@@ -3,7 +3,6 @@ package <%= appPackage %>.ui.detail;
 import javax.inject.Inject;
 
 import <%= appPackage %>.data.DataManager;
-import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.Statistic;
 import <%= appPackage %>.injection.ConfigPersistent;
 import <%= appPackage %>.ui.base.BasePresenter;
@@ -15,7 +14,7 @@ public class DetailPresenter extends BasePresenter<DetailMvpView> {
     private final DataManager mDataManager;
 
     @Inject
-    DetailPresenter(DataManager dataManager) {
+    public DetailPresenter(DataManager dataManager) {
         mDataManager = dataManager;
     }
 
@@ -24,7 +23,7 @@ public class DetailPresenter extends BasePresenter<DetailMvpView> {
         super.attachView(mvpView);
     }
 
-    void getPokemon(String name) {
+    public void getPokemon(String name) {
         checkViewAttached();
         getMvpView().showProgress(true);
         mDataManager.getPokemon(name)

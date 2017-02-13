@@ -1,7 +1,5 @@
 package <%= appPackage %>.ui.main;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import <%= appPackage %>.data.DataManager;
@@ -30,11 +28,11 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
         mDataManager.getPokemonList(limit)
                 .compose(SchedulerUtils.ioToMain())
                 .subscribe(pokemons -> {
-                  getMvpView().showProgress(false);
-                  getMvpView().showPokemon(pokemons);
+                    getMvpView().showProgress(false);
+                    getMvpView().showPokemon(pokemons);
                 }, throwable -> {
-                  getMvpView().showProgress(false);
-                  getMvpView().showError(throwable);
+                    getMvpView().showProgress(false);
+                    getMvpView().showError(throwable);
                 });
     }
 

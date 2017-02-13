@@ -15,16 +15,16 @@ public class DataManager {
     private final MvpStarterService mMvpStarterService;
 
     @Inject
-    DataManager(MvpStarterService mvpStarterService) {
+    public DataManager(MvpStarterService mvpStarterService) {
         mMvpStarterService = mvpStarterService;
     }
 
     public Single<List<String>> getPokemonList(int limit) {
-      return mMvpStarterService.getPokemonList(limit)
-              .toObservable()
-              .flatMapIterable(namedResources -> namedResources.results)
-              .map(namedResource -> namedResource.name)
-              .toList();
+        return mMvpStarterService.getPokemonList(limit)
+                .toObservable()
+                .flatMapIterable(namedResources -> namedResources.results)
+                .map(namedResource -> namedResource.name)
+                .toList();
     }
 
     public Single<Pokemon> getPokemon(String name) {
