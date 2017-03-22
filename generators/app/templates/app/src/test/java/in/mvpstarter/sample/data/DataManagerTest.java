@@ -15,8 +15,7 @@ import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.PokemonListResponse;
 import <%= appPackage %>.data.remote.MvpStarterService;
 import <%= appPackage %>.util.RxSchedulersOverrideRule;
-import rx.Single;
-import rx.observers.TestSubscriber;
+import io.reactivex.Single;
 
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
@@ -26,11 +25,10 @@ import static org.mockito.Mockito.when;
 public class DataManagerTest {
 
     @Rule
-    // Must be added to every test class that targets app code that uses RxJava
     public final RxSchedulersOverrideRule mOverrideSchedulersRule = new RxSchedulersOverrideRule();
     @Mock
     MvpStarterService mMockMvpStarterService;
-    DataManager mDataManager;
+    private DataManager mDataManager;
 
     @Before
     public void setUp() {
@@ -47,10 +45,10 @@ public class DataManagerTest {
         when(mMockMvpStarterService.getPokemonList(anyInt()))
                 .thenReturn(Single.just(pokemonListResponse));
 
-        TestSubscriber<List<String>> testSubscriber = new TestSubscriber<>();
-        mDataManager.getPokemonList(10).subscribe(testSubscriber);
-        testSubscriber.assertCompleted();
-        testSubscriber.assertValue(TestDataFactory.makePokemonNameList(namedResourceList));
+        mDataManager.getPokemonList(10)
+                .test()
+                .assertComplete()
+                .assertValue(TestDataFactory.makePokemonNameList(namedResourceList));
     }
 
     @Test
@@ -60,10 +58,9 @@ public class DataManagerTest {
         when(mMockMvpStarterService.getPokemon(anyString()))
                 .thenReturn(Single.just(pokemon));
 
-        TestSubscriber<Pokemon> testSubscriber = new TestSubscriber<>();
-        mDataManager.getPokemon(name).subscribe(testSubscriber);
-        testSubscriber.assertCompleted();
-        testSubscriber.assertValue(pokemon);
+        mDataManager.getPokemon(name)
+                .test()
+                .assertComplete()
+                .assertValue(pokemon);
     }
-
 }

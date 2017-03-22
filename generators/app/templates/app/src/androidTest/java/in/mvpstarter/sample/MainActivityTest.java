@@ -18,7 +18,7 @@ import <%= appPackage %>.data.model.NamedResource;
 import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.ui.main.MainActivity;
 import <%= appPackage %>.util.ErrorTestUtil;
-import rx.Single;
+import io.reactivex.Single;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -73,7 +73,7 @@ public class MainActivityTest {
 
     @Test
     public void checkErrorViewDisplays() {
-        stubDataManagerGetPokemonList(Single.<List<String>>error(new RuntimeException()));
+        stubDataManagerGetPokemonList(Single.error(new RuntimeException()));
         mMain.launchActivity(null);
         ErrorTestUtil.checkErrorViewsDisplay();
     }

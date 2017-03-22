@@ -8,17 +8,16 @@ import <%= appPackage %>.data.model.Pokemon;
 import <%= appPackage %>.data.model.Statistic;
 import <%= appPackage %>.injection.ConfigPersistent;
 import <%= appPackage %>.ui.base.BasePresenter;
-import rx.SingleSubscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
-import timber.log.Timber;
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
 
 @ConfigPersistent
 public class DetailPresenter extends BasePresenter<DetailMvpView> {
 
     private final DataManager mDataManager;
-    private CompositeSubscription mSubscriptions;
 
     @Inject
     DetailPresenter(DataManager dataManager) {
@@ -28,23 +27,21 @@ public class DetailPresenter extends BasePresenter<DetailMvpView> {
     @Override
     public void attachView(DetailMvpView mvpView) {
         super.attachView(mvpView);
-        mSubscriptions = new CompositeSubscription();
     }
 
-    @Override
-    public void detachView() {
-        super.detachView();
-        mSubscriptions.unsubscribe();
-        mSubscriptions = null;
-    }
 
     void getPokemon(String name) {
         checkViewAttached();
         getMvpView().showProgress(true);
-        mSubscriptions.add(mDataManager.getPokemon(name)
+        mDataManager.getPokemon(name)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new SingleSubscriber<Pokemon>() {
+                .subscribe(new SingleObserver<Pokemon>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
                     @Override
                     public void onSuccess(Pokemon pokemon) {
                         getMvpView().showProgress(false);
@@ -57,10 +54,9 @@ public class DetailPresenter extends BasePresenter<DetailMvpView> {
                     @Override
                     public void onError(Throwable error) {
                         getMvpView().showProgress(false);
-                        getMvpView().showError();
-                        Timber.e(error, "There was a problem retrieving the pokemon...");
+                        getMvpView().showError(error);
                     }
-                }));
+                });
     }
 
 
