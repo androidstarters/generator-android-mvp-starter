@@ -16,7 +16,7 @@ mkdirp('./templates');
 
 clone('https://github.com/ravidsrk/android-mvp-starter', './tmp')
   .then(function (repo) {
-    checkOutAndCopy(repo, 'master');
+    checkOutAndCopy(repo, 'develop');
   })
   .catch(function (err) {
     console.log(err);

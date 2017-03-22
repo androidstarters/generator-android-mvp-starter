@@ -1,17 +1,11 @@
 package <%= appPackage %>.ui.main;
 
-
-import java.util.List;
-
 import javax.inject.Inject;
 
 import <%= appPackage %>.data.DataManager;
 import <%= appPackage %>.injection.ConfigPersistent;
 import <%= appPackage %>.ui.base.BasePresenter;
-import io.reactivex.SingleObserver;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import <%= appPackage %>.util.rx.scheduler.SchedulerUtils;
 
 @ConfigPersistent
 public class MainPresenter extends BasePresenter<MainMvpView> {
@@ -32,25 +26,13 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
         checkViewAttached();
         getMvpView().showProgress(true);
         mDataManager.getPokemonList(limit)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new SingleObserver<List<String>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(List<String> pokemon) {
-                        getMvpView().showProgress(false);
-                        getMvpView().showPokemon(pokemon);
-                    }
-
-                    @Override
-                    public void onError(Throwable error) {
-                        getMvpView().showProgress(false);
-                        getMvpView().showError(error);
-                    }
+                .compose(SchedulerUtils.ioToMain())
+                .subscribe(pokemons -> {
+                    getMvpView().showProgress(false);
+                    getMvpView().showPokemon(pokemons);
+                }, throwable -> {
+                    getMvpView().showProgress(false);
+                    getMvpView().showError(throwable);
                 });
     }
 
