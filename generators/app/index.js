@@ -67,6 +67,8 @@ module.exports = generator.Base.extend({
     this.copy('gradlew.bat', 'gradlew.bat');
     this.copy('settings.gradle', 'settings.gradle');
     this.copy('app/gitignore', 'app/.gitignore');
+    this.copy('app/lint.xml', 'app/lint.xml');
+    this.copy('app/dependencies.gradle', 'app/dependencies.gradle');
     this.copy('app/proguard-rules.pro', 'app/proguard-rules.pro');
 
     this.directory('gradle', 'gradle');
