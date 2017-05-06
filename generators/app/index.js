@@ -27,16 +27,33 @@ module.exports = generator.Base.extend({
         store: true
       },
       {
+        type: 'list',
+        name: 'language',
+        message: 'What language would you like to use? ',
+        choices: [
+            {
+                value: 'java',
+                name: 'Java (with Retrolambda)'
+            },
+            {
+                value: 'kotlin',
+                name: 'Kotlin'
+            }
+
+        ],
+        default: 0
+    },
+      {
         name: 'targetSdk',
         message: 'What Android SDK will you be targeting?',
         store: true,
-        default: 23 // Android 6.0 (Marshmallow)
+        default: 25 // Android 7.1 (Nougaut)
       },
       {
         name: 'minSdk',
         message: 'What is the minimum Android SDK you wish to support?',
         store: true,
-        default: 15 // Android 4.0 (Ice Cream Sandwich)
+        default: 19 // Android 4.0 (Ice Cream Sandwich)
       }];
 
     return this.prompt(prompts).then(props => {
