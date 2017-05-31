@@ -30,7 +30,7 @@ function checkOutAndCopy(repo, name) {
     })
     .then(function () {
       replace({
-        regex: 'in.mvpstarter.sample',
+        regex: 'io.mvpstarter.sample',
         replacement: '<%= appPackage %>',
         paths: ['./tmp/app'],
         recursive: true,

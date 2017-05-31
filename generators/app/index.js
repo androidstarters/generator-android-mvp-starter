@@ -68,6 +68,13 @@ module.exports = generator.Base.extend({
   writing: function () {
     var packageDir = this.props.appPackage.replace(/\./g, '/');
 
+    var appFolder;
+    if (this.language == 'java') {
+        appFolder = 'app-java'
+    } else {
+        appFolder = 'app-kotlin'
+    }
+
     mkdirp('app');
     mkdirp('app/src/main/assets');
     mkdirp('app/src/main/java/' + packageDir);
