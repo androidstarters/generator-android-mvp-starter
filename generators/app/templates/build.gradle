@@ -2,24 +2,23 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
+        maven { url "https://maven.google.com" }
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
-        classpath 'me.tatarka:gradle-retrolambda:3.3.0'
-        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+        classpath 'com.android.tools.build:gradle:3.0.0-alpha4'
         //noinspection GradleDynamicVersion
         classpath 'io.fabric.tools:gradle:1.+'
-        classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.google.gms:google-services:3.1.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
     }
-
-    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
 }
 
 allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
         maven { url 'https://maven.fabric.io/public' }
     }
