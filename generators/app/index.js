@@ -78,14 +78,14 @@ module.exports = generator.Base.extend({
 
     this.template('README.md', 'README.md');
     this.template('app/build.gradle', 'app/build.gradle');
-    this.template('app/src/androidTest/java/in/mvpstarter/sample', 'app/src/androidTest/java/' + packageDir, this, {});
-    this.template('app/src/commonTest/java/in/mvpstarter/sample', 'app/src/commonTest/java/' + packageDir, this, {});
+    this.template('app/src/androidTest/java/io/mvpstarter/sample', 'app/src/androidTest/java/' + packageDir, this, {});
+    this.template('app/src/commonTest/java/io/mvpstarter/sample', 'app/src/commonTest/java/' + packageDir, this, {});
     this.template('app/src/debug/AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
     this.template('app/src/debug/res', 'app/src/debug/res', this, {});
     this.template('app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml');
-    this.template('app/src/main/java/in/mvpstarter/sample', 'app/src/main/java/' + packageDir, this, {});
+    this.template('app/src/main/java/io/mvpstarter/sample', 'app/src/main/java/' + packageDir, this, {});
     this.template('app/src/main/res/layout', 'app/src/main/res/layout', this, {});
     this.template('app/src/release/res', 'app/src/release/res', this, {});
-    this.template('app/src/test/java/in/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
+    this.template('app/src/test/java/io/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
   }
 });
