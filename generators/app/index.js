@@ -82,6 +82,7 @@ module.exports = Generator.extend({
     mkdirp('app/src/commonTest/java/' + packageDir);
     mkdirp('app/src/debug');
     mkdirp('app/src/release');
+    mkdirp('app/src/test/resources');
     mkdirp('app/src/test/java/' + packageDir);
 
     var appPath = this.sourceRoot() + '/' + appFolder + '/';
@@ -100,8 +101,10 @@ module.exports = Generator.extend({
     if (this.props.language === 'java') {
       this.fs.copy(appPath + 'config', 'config');
     }
+
     this.fs.copy(appPath + 'gradle', 'gradle');
     this.fs.copy(appPath + 'app/src/main/res', 'app/src/main/res');
+    this.fs.copy(appPath + 'app/src/test/resources', 'app/src/test/resources');
 
     this.fs.copyTpl(appPath + 'README.md', 'README.md', this.props);
     this.fs.copyTpl(appPath + 'app/build.gradle', 'app/build.gradle', this.props);
