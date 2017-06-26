@@ -53,9 +53,9 @@ function checkOutAndCopy(repo, name) {
 
       rimraf.sync(path.join(__dirname, '/tmp/.git'));
 
-      console.log('Copying files to ./templates/app-java');
+      console.log('Copying files to ./templates/template-java');
       ncp.limit = 1600;
-      ncp('./tmp', './templates/app-java', function (err) {
+      ncp('./tmp', './templates/template-java', function (err) {
         if (err) {
           return console.error(err);
         }

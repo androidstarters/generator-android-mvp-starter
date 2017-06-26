@@ -7,7 +7,6 @@ const clone = require('nodegit').Clone;
 const replace = require('replace');
 const ncp = require('ncp').ncp;
 
-// Clone a given repository into the `./tmp` folder.
 clone('https://github.com/ravidsrk/kotlin-android-starter.git', './tmp')
   .then(function (repo) {
     checkOutAndCopy(repo, 'develop');
@@ -47,9 +46,10 @@ function checkOutAndCopy(repo, name) {
 
       rimraf.sync(path.join(__dirname, '/tmp/.git'));
 
-      console.log('Copying files to ./templates/app-kotlin');
+      console.log('Copying files to ./templates/template-kotlin');
+
       ncp.limit = 1600;
-      ncp('./tmp', './templates/app-kotlin', function (err) {
+      ncp('./tmp', './templates/template-kotlin', function (err) {
         if (err) {
           return console.error(err);
         }

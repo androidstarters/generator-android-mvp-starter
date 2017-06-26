@@ -69,9 +69,9 @@ module.exports = Generator.extend({
 
     var appFolder;
     if (this.props.language === 'java') {
-      appFolder = 'app-java';
+      appFolder = 'template-java';
     } else {
-      appFolder = 'app-kotlin';
+      appFolder = 'template-kotlin';
     }
 
     mkdirp('app');
