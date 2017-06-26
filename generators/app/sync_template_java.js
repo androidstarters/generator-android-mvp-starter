@@ -51,6 +51,8 @@ function checkOutAndCopy(repo, name) {
         console.log('Renamed app folder .gitignore');
       });
 
+      rimraf.sync(path.join(__dirname, '/tmp/.git'));
+
       console.log('Copying files to ./templates/app-java');
       ncp.limit = 1600;
       ncp('./tmp', './templates/app-java', function (err) {
