@@ -23,8 +23,7 @@ module.exports = Generator.extend({
       },
       {
         name: 'package',
-        message: 'What package will you be publishing the app under?',
-        store: true
+        message: 'What package will you be publishing the app under?'
       },
       {
         type: 'list',
@@ -32,16 +31,15 @@ module.exports = Generator.extend({
         message: 'What language would you like to use? ',
         choices: [
           {
-            value: 'java',
-            name: 'Java'
-          },
-          {
             value: 'kotlin',
             name: 'Kotlin'
+          },
+          {
+            value: 'java',
+            name: 'Java'
           }
-
         ],
-        default: 1
+        default: 0
       },
       {
         name: 'targetSdk',
@@ -58,6 +56,7 @@ module.exports = Generator.extend({
 
     return this.prompt(prompts).then(props => {
       this.props.appPackage = props.package;
+      this.props.language = props.language;
       this.appName = props.name;
       this.appPackage = props.package;
       this.androidTargetSdkVersion = props.targetSdk;
