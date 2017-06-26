@@ -13,7 +13,7 @@ describe('generator-android-mvp-starter:app', function () {
         package: 'com.sample.mvp',
         targetSdk: '21',
         minSdk: '14',
-        language: 'java'
+        language: 'kotlin'
       })
       .toPromise();
   });
@@ -34,7 +34,8 @@ describe('generator-android-mvp-starter:app', function () {
     assert.file([
       'app/.gitignore',
       'app/build.gradle',
-      'app/proguard-rules.pro'
+      'app/proguard-rules.pro',
+      'app/src/main/java/com/sample/mvp/MvpStarterApplication.kt'
     ]);
   });
 

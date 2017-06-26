@@ -1,17 +1,17 @@
 'use strict';
 
-const generator = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
 const yosay = require('yosay');
 const chalk = require('chalk');
 
-module.exports = generator.Base.extend({
+module.exports = Generator.extend({
   initializing: function () {
     this.props = {};
   },
   prompting: function () {
     this.log(yosay(
-      'Welcome to the rad ' + chalk.red('Android MVP Starter') + ' generator!'
+      'Welcome to ' + chalk.red('Android Starter') + ' generator!'
     ));
 
     const prompts = [
@@ -31,23 +31,23 @@ module.exports = generator.Base.extend({
         name: 'language',
         message: 'What language would you like to use? ',
         choices: [
-            {
-                value: 'java',
-                name: 'Java (with Retrolambda)'
-            },
-            {
-                value: 'kotlin',
-                name: 'Kotlin'
-            }
+          {
+            value: 'java',
+            name: 'Java'
+          },
+          {
+            value: 'kotlin',
+            name: 'Kotlin'
+          }
 
         ],
-        default: 0
-    },
+        default: 1
+      },
       {
         name: 'targetSdk',
         message: 'What Android SDK will you be targeting?',
         store: true,
-        default: 25 // Android 7.1 (Nougaut)
+        default: 26 // Android 8.0 (O(7.1+))
       },
       {
         name: 'minSdk',
@@ -69,10 +69,10 @@ module.exports = generator.Base.extend({
     var packageDir = this.props.appPackage.replace(/\./g, '/');
 
     var appFolder;
-    if (this.language == 'java') {
-        appFolder = 'app-java'
+    if (this.props.language === 'java') {
+      appFolder = 'app-java';
     } else {
-        appFolder = 'app-kotlin'
+      appFolder = 'app-kotlin';
     }
 
     mkdirp('app');
@@ -84,32 +84,35 @@ module.exports = generator.Base.extend({
     mkdirp('app/src/release');
     mkdirp('app/src/test/java/' + packageDir);
 
-    this.copy('gitignore', '.gitignore');
-    this.copy('build.gradle', 'build.gradle');
-    this.copy('gradle.properties', 'gradle.properties');
-    this.copy('gradlew', 'gradlew');
-    this.copy('gradlew.bat', 'gradlew.bat');
-    this.copy('settings.gradle', 'settings.gradle');
-    this.copy('app/gitignore', 'app/.gitignore');
-    this.copy('app/lint.xml', 'app/lint.xml');
-    this.copy('app/dependencies.gradle', 'app/dependencies.gradle');
-    this.copy('app/proguard-rules.pro', 'app/proguard-rules.pro');
+    var appPath = this.sourceRoot() + '/' + appFolder + '/';
 
-    this.directory('gradle', 'gradle');
-    this.directory('config', 'config');
-    this.directory('app/src/main/assets', 'app/src/main/assets');
-    this.directory('app/src/main/res', 'app/src/main/res', this, {});
+    this.fs.copy(appPath + 'gitignore', '.gitignore');
+    this.fs.copy(appPath + 'build.gradle', 'build.gradle');
+    this.fs.copy(appPath + 'gradle.properties', 'gradle.properties');
+    this.fs.copy(appPath + 'gradlew', 'gradlew');
+    this.fs.copy(appPath + 'gradlew.bat', 'gradlew.bat');
+    this.fs.copy(appPath + 'settings.gradle', 'settings.gradle');
+    this.fs.copy(appPath + 'app/gitignore', 'app/.gitignore');
+    this.fs.copy(appPath + 'app/lint.xml', 'app/lint.xml');
+    this.fs.copy(appPath + 'app/dependencies.gradle', 'app/dependencies.gradle');
+    this.fs.copy(appPath + 'app/proguard-rules.pro', 'app/proguard-rules.pro');
 
-    this.template('README.md', 'README.md');
-    this.template('app/build.gradle', 'app/build.gradle');
-    this.template('app/src/androidTest/java/in/mvpstarter/sample', 'app/src/androidTest/java/' + packageDir, this, {});
-    this.template('app/src/commonTest/java/in/mvpstarter/sample', 'app/src/commonTest/java/' + packageDir, this, {});
-    this.template('app/src/debug/AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml');
-    this.template('app/src/debug/res', 'app/src/debug/res', this, {});
-    this.template('app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml');
-    this.template('app/src/main/java/in/mvpstarter/sample', 'app/src/main/java/' + packageDir, this, {});
-    this.template('app/src/main/res/layout', 'app/src/main/res/layout', this, {});
-    this.template('app/src/release/res', 'app/src/release/res', this, {});
-    this.template('app/src/test/java/in/mvpstarter/sample', 'app/src/test/java/' + packageDir, this, {});
+    if (this.props.language === 'java') {
+      this.fs.copy(appPath + 'config', 'config');
+    }
+    this.fs.copy(appPath + 'gradle', 'gradle');
+    this.fs.copy(appPath + 'app/src/main/res', 'app/src/main/res');
+
+    this.fs.copy(appPath + 'README.md', 'README.md', this.props);
+    this.fs.copy(appPath + 'app/build.gradle', 'app/build.gradle', this.props);
+    this.fs.copy(appPath + 'app/src/androidTest/java/io/mvpstarter/sample', 'app/src/androidTest/java/' + packageDir, this.props);
+    this.fs.copy(appPath + 'app/src/commonTest/java/io/mvpstarter/sample', 'app/src/commonTest/java/' + packageDir, this.props);
+    this.fs.copy(appPath + 'app/src/debug/AndroidManifest.xml', 'app/src/debug/AndroidManifest.xml', this.props);
+    this.fs.copy(appPath + 'app/src/debug/res', 'app/src/debug/res', this.props);
+    this.fs.copy(appPath + 'app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml', this.props);
+    this.fs.copy(appPath + 'app/src/main/java/io/mvpstarter/sample', 'app/src/main/java/' + packageDir, this.props);
+    this.fs.copy(appPath + 'app/src/main/res/layout', 'app/src/main/res/layout', this.props);
+    this.fs.copy(appPath + 'app/src/release/res', 'app/src/release/res', this.props);
+    this.fs.copy(appPath + 'app/src/test/java/io/mvpstarter/sample', 'app/src/test/java/' + packageDir, this.props);
   }
 });

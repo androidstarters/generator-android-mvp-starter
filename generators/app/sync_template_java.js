@@ -14,7 +14,7 @@ rimraf.sync(path.join(__dirname, '/templates'));
 rimraf.sync(path.join(__dirname, '/tmp'));
 mkdirp('./templates');
 
-clone('https://github.com/ravidsrk/android-mvp-starter', './tmp')
+clone('https://github.com/ravidsrk/android-starter.git', './tmp')
   .then(function (repo) {
     checkOutAndCopy(repo, 'develop');
   })
@@ -51,9 +51,9 @@ function checkOutAndCopy(repo, name) {
         console.log('Renamed app folder .gitignore');
       });
 
-      console.log('Copying files to ./templates');
+      console.log('Copying files to ./templates/app-java');
       ncp.limit = 1600;
-      ncp('./tmp', './templates', function (err) {
+      ncp('./tmp', './templates/app-java', function (err) {
         if (err) {
           return console.error(err);
         }
