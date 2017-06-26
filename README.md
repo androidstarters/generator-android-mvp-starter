@@ -1,4 +1,4 @@
-# generator-android-mvp-starter 
+# generator-android-mvp-starter
 
 [![Join the chat at https://gitter.im/generator-android-mvp-starter/Lobby](https://badges.gitter.im/generator-android-mvp-starter/Lobby.svg)](https://gitter.im/generator-android-mvp-starter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/ravidsrk/generator-android-mvp-starter/badge.svg?branch=master)](https://coveralls.io/github/ravidsrk/generator-android-mvp-starter?branch=master)
@@ -7,6 +7,7 @@
 ## How it works?
 It provides a generator to create and maintain a android application based on the latests frameworks and patterns used by the community.
 Stack:
+- [Kotlin](https://kotlinlang.org/),[Java](https://en.wikipedia.org/wiki/Java_(programming_language))
 - [RxJava](https://github.com/ReactiveX/RxJava) and [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 - [Retrofit](http://square.github.io/retrofit/) / [OkHttp](http://square.github.io/okhttp/)
 - [Gson](https://github.com/google/gson)
@@ -38,12 +39,11 @@ cd NewApp
 yo android-mvp-starter
 ```
 
-## Getting To Know Yeoman
+### Created & Maintained By
+[Ravindra Kumar](https://github.com/ravidsrk) ([@ravidsrk](https://www.twitter.com/ravidsrk))
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+> If you found this repo helpful or you learned something from the source code and want to thank me, consider [buying me a cup of](https://www.paypal.me/ravidsrk) :coffee:
+
 
 ## License
 
