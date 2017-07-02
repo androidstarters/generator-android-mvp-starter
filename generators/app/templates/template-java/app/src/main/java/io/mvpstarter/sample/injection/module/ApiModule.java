@@ -7,7 +7,9 @@ import dagger.Provides;
 import <%= appPackage %>.data.remote.PokemonService;
 import retrofit2.Retrofit;
 
-/** Created by shivam on 29/5/17. */
+/**
+ * Created by shivam on 29/5/17.
+ */
 @Module(includes = {NetworkModule.class})
 public class ApiModule {
 
