@@ -2,8 +2,8 @@ package <%= appPackage %>.features.detail
 
 import <%= appPackage %>.data.DataManager
 import <%= appPackage %>.data.model.Pokemon
-import <%= appPackage %>.injection.ConfigPersistent
 import <%= appPackage %>.features.base.BasePresenter
+import <%= appPackage %>.injection.ConfigPersistent
 import <%= appPackage %>.util.rx.scheduler.SchedulerUtils
 import javax.inject.Inject
 

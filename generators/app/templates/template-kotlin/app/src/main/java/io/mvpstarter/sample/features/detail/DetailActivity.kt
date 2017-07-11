@@ -1,11 +1,5 @@
 package <%= appPackage %>.features.detail
 
-import <%= appPackage %>.R
-import <%= appPackage %>.data.model.Pokemon
-import <%= appPackage %>.data.model.Statistic
-import <%= appPackage %>.features.base.BaseActivity
-import <%= appPackage %>.features.common.ErrorView
-import <%= appPackage %>.features.detail.widget.StatisticView
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +9,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import butterknife.BindView
-import com.bumptech.glide.Glide
+import <%= appPackage %>.R
+import <%= appPackage %>.data.model.Pokemon
+import <%= appPackage %>.data.model.Statistic
+import <%= appPackage %>.features.base.BaseActivity
+import <%= appPackage %>.features.common.ErrorView
+import <%= appPackage %>.features.detail.widget.StatisticView
+import <%= appPackage %>.util.loadImageFromUrl
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -57,9 +57,7 @@ class DetailActivity : BaseActivity(), DetailMvpView, ErrorView.ErrorListener {
 
     override fun showPokemon(pokemon: Pokemon) {
         if (pokemon.sprites.frontDefault != null) {
-            Glide.with(this)
-                    .load(pokemon.sprites.frontDefault)
-                    .into(mPokemonImage)
+            mPokemonImage?.loadImageFromUrl(pokemon.sprites.frontDefault as String)
         }
         mPokemonLayout?.visibility = View.VISIBLE
     }
